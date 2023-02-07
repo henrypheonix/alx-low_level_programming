@@ -1,32 +1,54 @@
-include "main.h"
+#include "main.h"
+
 /**
- * create_file -creates an array of chars, and initializes
- *
- * @text_content: is a NULL terminated string to write to the file
- * @filename: is the name of the file to create
- *
- * Return: 1 on success, -1 on failure
+ * _strlen - returns length of string
+ * @s: string
+ * Return: length of string
  */
-int create_file(const char *filename, char *text_content)
-{
-aint o, w, len = 0;
 
-if (filename == NULL)
-return (-1);
-
-if (text_content != NULL)
+int _strlen(char *s)
 {
-for (len = 0; text_content[len];)
+int len = 0;
+
+while (s[len] != '\0')
+{
 len++;
 }
 
-o = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
-w = write(o, text_content, len);
+return (len);
+}
 
-if (o == -1 || w == -1)
+
+/**
+ * create_file - creates a file
+ * @filename: name of file
+ * @text_content: text
+ * Return: 1 - success, -1 error
+ */
+
+int create_file(const char *filename, char *text_content)
+{
+int fd;
+unsigned int length;
+ssize_t bytes_written;
+
+if (filename == NULL)
+return (-1);
+fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
+if (fd == -1)
 return (-1);
 
-close(o);
+if (text_content == NULL)
+{
+length = 0;
+text_content = "";
+}
+else
+length = _strlen(text_content);
 
+bytes_written = write(fd, text_content, length);
+if (bytes_written == -1)
+return (-1);
+close(fd);
 return (1);
 }

@@ -1,3 +1,30 @@
+
+Oghenet3ga
+/
+alx-low_level_programming
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+Breadcrumbsalx-low_level_programming/0x1C-makefiles
+/5-island_perimeter.py
+Latest commit
+Oghenet3ga
+Oghenet3ga
+9 hours ago
+History
+28 lines (23 loc) · 744 Bytes
+Breadcrumbsalx-low_level_programming/0x1C-makefiles
+/5-island_perimeter.py
+File metadata and controls
+
+Code
+
+Blame
 #!/usr/bin/python3
 """Defines an island perimeter measuring function."""
 def island_perimeter(grid):
